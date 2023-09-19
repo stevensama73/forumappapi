@@ -25,11 +25,12 @@ describe('a AddedThread entities', () => {
   });
  
   it('should create addedThread object correctly', () => {
+    const fakeDate = new Date();
     const payload = {
       id: 'thread-123',
       title: 'title-xxx',
       body: 'body-xxx',
-      date: '2021-08-08T07:59:18.982Z',
+      date: fakeDate,
       owner: 'owner-xxx',
     };
 
