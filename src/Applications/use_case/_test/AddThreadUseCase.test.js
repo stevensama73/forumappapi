@@ -20,22 +20,22 @@ describe('AddThreadUseCase', () => {
       date: fakeDate,
       owner: fakeOwner,
     });
- 
+
     /** creating dependency of use case */
     const mockThreadRepository = new ThreadRepository();
- 
+
     /** mocking needed function */
     mockThreadRepository.addThread = jest.fn()
       .mockImplementation(() => Promise.resolve(mockAddedThread));
- 
+
     /** creating use case instance */
     const getThreadUseCase = new AddThreadUseCase({
       threadRepository: mockThreadRepository,
     });
- 
+
     // Action
     const addedThread = await getThreadUseCase.execute(fakeOwner, useCasePayload);
- 
+
     // Assert
     expect(addedThread).toStrictEqual(new AddedThread({
       id: fakeId,

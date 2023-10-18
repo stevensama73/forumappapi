@@ -17,10 +17,10 @@ describe('/comments endpoint', () => {
       // Arrange
       const requestThreadPayload = {
         title: 'title-xxx',
-        body: 'body-xxx'
+        body: 'body-xxx',
       };
       const requestCommentPayload = {
-        content: 'content-xxx'
+        content: 'content-xxx',
       };
       // eslint-disable-next-line no-undef
       const server = await createServer(container);
@@ -48,8 +48,8 @@ describe('/comments endpoint', () => {
         url: '/threads',
         payload: requestThreadPayload,
         headers: {
-          authorization: `Bearer ${accessToken}`
-        }
+          authorization: `Bearer ${accessToken}`,
+        },
       });
       const { data: { addedThread: { id: threadId } } } = JSON.parse(threadResponse.payload);
       const response = await server.inject({
@@ -57,8 +57,8 @@ describe('/comments endpoint', () => {
         url: `/threads/${threadId}/comments`,
         payload: requestCommentPayload,
         headers: {
-          authorization: `Bearer ${accessToken}`
-        }
+          authorization: `Bearer ${accessToken}`,
+        },
       });
 
       // Assert
@@ -71,7 +71,7 @@ describe('/comments endpoint', () => {
     it('should response 401 when add comment without authentication', async () => {
       // Arrange
       const requestPayload = {
-        content: 'content-xxx'
+        content: 'content-xxx',
       };
       // eslint-disable-next-line no-undef
       const server = await createServer(container);
@@ -79,8 +79,8 @@ describe('/comments endpoint', () => {
       // Action
       const response = await server.inject({
         method: 'POST',
-        url: `/threads/thread-xxx/comments`,
-        payload: requestPayload
+        url: '/threads/thread-xxx/comments',
+        payload: requestPayload,
       });
 
       // Assert
@@ -93,7 +93,7 @@ describe('/comments endpoint', () => {
       // Arrange
       const requestThreadPayload = {
         title: 'title-xxx',
-        body: 'body-xxx'
+        body: 'body-xxx',
       };
       const requestCommentPayload = {};
       // eslint-disable-next-line no-undef
@@ -122,8 +122,8 @@ describe('/comments endpoint', () => {
         url: '/threads',
         payload: requestThreadPayload,
         headers: {
-          authorization: `Bearer ${accessToken}`
-        }
+          authorization: `Bearer ${accessToken}`,
+        },
       });
       const { data: { addedThread: { id: threadId } } } = JSON.parse(threadResponse.payload);
       const response = await server.inject({
@@ -131,8 +131,8 @@ describe('/comments endpoint', () => {
         url: `/threads/${threadId}/comments`,
         payload: requestCommentPayload,
         headers: {
-          authorization: `Bearer ${accessToken}`
-        }
+          authorization: `Bearer ${accessToken}`,
+        },
       });
 
       // Assert
@@ -146,10 +146,10 @@ describe('/comments endpoint', () => {
       // Arrange
       const requestThreadPayload = {
         title: 'title-xxx',
-        body: 'body-xxx'
+        body: 'body-xxx',
       };
       const requestCommentPayload = {
-        content: 123
+        content: 123,
       };
       // eslint-disable-next-line no-undef
       const server = await createServer(container);
@@ -177,8 +177,8 @@ describe('/comments endpoint', () => {
         url: '/threads',
         payload: requestThreadPayload,
         headers: {
-          authorization: `Bearer ${accessToken}`
-        }
+          authorization: `Bearer ${accessToken}`,
+        },
       });
       const { data: { addedThread: { id: threadId } } } = JSON.parse(threadResponse.payload);
       const response = await server.inject({
@@ -186,8 +186,8 @@ describe('/comments endpoint', () => {
         url: `/threads/${threadId}/comments`,
         payload: requestCommentPayload,
         headers: {
-          authorization: `Bearer ${accessToken}`
-        }
+          authorization: `Bearer ${accessToken}`,
+        },
       });
 
       // Assert
@@ -196,7 +196,7 @@ describe('/comments endpoint', () => {
       expect(responseJson.status).toEqual('fail');
       expect(responseJson.message).toEqual('tidak dapat membuat comment baru karena tipe data tidak sesuai');
     });
-  })
+  });
 
   describe('/when DELETE /threads/{threadId}/comments/{commentId}', () => {
     it('should response 401 when delete comment without authentication', async () => {
@@ -205,9 +205,9 @@ describe('/comments endpoint', () => {
       const server = await createServer(container);
       const response = await server.inject({
         method: 'DELETE',
-        url: `/threads/thread-xxx/comments/comment-xxx`
+        url: '/threads/thread-xxx/comments/comment-xxx',
       });
-  
+
       // Assert
       const responseJson = JSON.parse(response.payload);
       expect(response.statusCode).toEqual(401);
@@ -240,12 +240,12 @@ describe('/comments endpoint', () => {
 
       const response = await server.inject({
         method: 'DELETE',
-        url: `/threads/thread-xxx/comments/comment-xxx`,
+        url: '/threads/thread-xxx/comments/comment-xxx',
         headers: {
-          authorization: `Bearer ${accessToken}`
-        }
+          authorization: `Bearer ${accessToken}`,
+        },
       });
-  
+
       // Assert
       const responseJson = JSON.parse(response.payload);
       expect(response.statusCode).toEqual(404);
@@ -257,10 +257,10 @@ describe('/comments endpoint', () => {
       // Arrange
       const requestThreadPayload = {
         title: 'title-xxx',
-        body: 'body-xxx'
+        body: 'body-xxx',
       };
       const requestCommentPayload = {
-        content: 'content-xxx'
+        content: 'content-xxx',
       };
       // eslint-disable-next-line no-undef
       const server = await createServer(container);
@@ -288,18 +288,18 @@ describe('/comments endpoint', () => {
         url: '/threads',
         payload: requestThreadPayload,
         headers: {
-          authorization: `Bearer ${accessToken}`
-        }
+          authorization: `Bearer ${accessToken}`,
+        },
       });
       const { data: { addedThread: { id: threadId } } } = JSON.parse(threadResponse.payload);
       const response = await server.inject({
         method: 'DELETE',
         url: `/threads/${threadId}/comments/comment-xxx`,
         headers: {
-          authorization: `Bearer ${accessToken}`
-        }
+          authorization: `Bearer ${accessToken}`,
+        },
       });
-  
+
       // Assert
       const responseJson = JSON.parse(response.payload);
       expect(response.statusCode).toEqual(404);
@@ -311,10 +311,10 @@ describe('/comments endpoint', () => {
       // Arrange
       const requestThreadPayload = {
         title: 'title-xxx',
-        body: 'body-xxx'
+        body: 'body-xxx',
       };
       const requestCommentPayload = {
-        content: 'content-xxx'
+        content: 'content-xxx',
       };
       // eslint-disable-next-line no-undef
       const server = await createServer(container);
@@ -360,8 +360,8 @@ describe('/comments endpoint', () => {
         url: '/threads',
         payload: requestThreadPayload,
         headers: {
-          authorization: `Bearer ${accessToken}`
-        }
+          authorization: `Bearer ${accessToken}`,
+        },
       });
       const { data: { addedThread: { id: threadId } } } = JSON.parse(threadResponse.payload);
       const commentResponse = await server.inject({
@@ -369,18 +369,18 @@ describe('/comments endpoint', () => {
         url: `/threads/${threadId}/comments`,
         payload: requestCommentPayload,
         headers: {
-          authorization: `Bearer ${accessToken}`
-        }
+          authorization: `Bearer ${accessToken}`,
+        },
       });
       const { data: { addedComment: { id: commentId } } } = JSON.parse(commentResponse.payload);
       const response = await server.inject({
         method: 'DELETE',
         url: `/threads/${threadId}/comments/${commentId}`,
         headers: {
-          authorization: `Bearer ${accessToken2}`
-        }
+          authorization: `Bearer ${accessToken2}`,
+        },
       });
-  
+
       // Assert
       const responseJson = JSON.parse(response.payload);
       expect(response.statusCode).toEqual(403);
@@ -392,10 +392,10 @@ describe('/comments endpoint', () => {
       // Arrange
       const requestThreadPayload = {
         title: 'title-xxx',
-        body: 'body-xxx'
+        body: 'body-xxx',
       };
       const requestCommentPayload = {
-        content: 'content-xxx'
+        content: 'content-xxx',
       };
       // eslint-disable-next-line no-undef
       const server = await createServer(container);
@@ -423,8 +423,8 @@ describe('/comments endpoint', () => {
         url: '/threads',
         payload: requestThreadPayload,
         headers: {
-          authorization: `Bearer ${accessToken}`
-        }
+          authorization: `Bearer ${accessToken}`,
+        },
       });
       const { data: { addedThread: { id: threadId } } } = JSON.parse(threadResponse.payload);
       const commentResponse = await server.inject({
@@ -432,22 +432,22 @@ describe('/comments endpoint', () => {
         url: `/threads/${threadId}/comments`,
         payload: requestCommentPayload,
         headers: {
-          authorization: `Bearer ${accessToken}`
-        }
+          authorization: `Bearer ${accessToken}`,
+        },
       });
       const { data: { addedComment: { id: commentId } } } = JSON.parse(commentResponse.payload);
       const response = await server.inject({
         method: 'DELETE',
         url: `/threads/${threadId}/comments/${commentId}`,
         headers: {
-          authorization: `Bearer ${accessToken}`
-        }
+          authorization: `Bearer ${accessToken}`,
+        },
       });
-  
+
       // Assert
       const responseJson = JSON.parse(response.payload);
       expect(response.statusCode).toEqual(200);
       expect(responseJson.status).toEqual('success');
     });
-  })
+  });
 });

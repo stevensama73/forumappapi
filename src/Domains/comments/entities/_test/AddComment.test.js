@@ -1,5 +1,5 @@
 const AddComment = require('../AddComment');
- 
+
 describe('a AddComment entities', () => {
   it('should throw error when payload did not contain needed property', () => {
     const payload = {};
@@ -17,7 +17,7 @@ describe('a AddComment entities', () => {
 
   it('should create addComment object correctly', () => {
     const payload = {
-      content: 'content-xxx'
+      content: 'content-xxx',
     };
 
     const { content } = new AddComment(payload);

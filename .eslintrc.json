@@ -15,6 +15,9 @@
         "no-underscore-dangle": "off",
         "no-console": "off",
         "camelcase": "off",
-        "max-len": "off"
-    }
+        "max-len": "off",
+        "class-methods-use-this": "off",
+        "no-restricted-syntax": "off"
+    },
+    "ignorePatterns": ["**/*.test.*"]
 }
