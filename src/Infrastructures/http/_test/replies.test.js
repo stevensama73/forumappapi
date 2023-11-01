@@ -2,6 +2,8 @@ const pool = require('../../database/postgres/pool');
 const RepliesTableTestHelper = require('../../../../tests/RepliesTableTestHelper');
 const container = require('../../container');
 const createServer = require('../createServer');
+const UsersTableTestHelper = require('../../../../tests/UsersTableTestHelper');
+const AuthenticationsTableTestHelper = require('../../../../tests/AuthenticationsTableTestHelper');
 
 describe('/comments endpoint', () => {
   afterAll(async () => {
@@ -9,6 +11,8 @@ describe('/comments endpoint', () => {
   });
 
   afterEach(async () => {
+    await UsersTableTestHelper.cleanTable();
+    await AuthenticationsTableTestHelper.cleanTable();
     await RepliesTableTestHelper.cleanTable();
   });
 

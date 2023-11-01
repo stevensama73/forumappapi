@@ -17,7 +17,7 @@ describe('DeleteReplyUseCase', () => {
     const threadUseCasePayload = {
       threadId: 'thread-xxx',
     };
-    const fakeOwner = 'owner-xxx';
+    const fakeOwner = 'dicoding';
 
     /** creating dependency of use case */
     const mockReplyRepository = new ReplyRepository();

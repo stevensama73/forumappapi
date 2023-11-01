@@ -9,7 +9,7 @@ describe('AddReplyUseCase', () => {
   it('should orchestrating the add reply action correctly', async () => {
     // Arrange
     const fakeId = 'reply-xxx';
-    const fakeOwner = 'owner-xxx';
+    const fakeOwner = 'dicoding';
     const useCasePayload = {
       content: 'content-xxx',
       commentId: 'comment-xxx',

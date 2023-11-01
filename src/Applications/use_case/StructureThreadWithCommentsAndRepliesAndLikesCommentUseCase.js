@@ -1,5 +1,8 @@
 class StructureThreadWithCommentsAndRepliesUseCase {
-  constructor({ replyRepository, commentRepository, threadRepository }) {
+  constructor({
+    likesCommentRepository, replyRepository, commentRepository, threadRepository,
+  }) {
+    this._likesCommentRepository = likesCommentRepository;
     this._replyRepository = replyRepository;
     this._commentRepository = commentRepository;
     this._threadRepository = threadRepository;
@@ -10,6 +13,7 @@ class StructureThreadWithCommentsAndRepliesUseCase {
     const thread = await this._threadRepository.getThreadById(threadId);
     const comments = await this._commentRepository.getCommentsByThreadId(threadId);
     const replies = await this._replyRepository.getRepliesByCommentsId(comments.map((comment) => comment.id));
+    const likesComment = await this._likesCommentRepository.getLikesCommentByThreadId(threadId);
     const result = {
       thread: {
         id: threadId,
@@ -29,6 +33,12 @@ class StructureThreadWithCommentsAndRepliesUseCase {
           content: comment.is_delete ? '**komentar telah dihapus**' : comment.content,
           replies: [],
         };
+
+        likesComment.forEach((likeComment) => {
+          if (likeComment.comment_id === comment.id) {
+            commentData.likeCount = parseInt(likeComment.likecount, 10);
+          }
+        });
 
         replies.forEach((reply) => {
           if (reply.comment_id === comment.id) {

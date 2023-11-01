@@ -7,7 +7,7 @@ describe('AddThreadUseCase', () => {
   it('should orchestrating the add thread action correctly', async () => {
     // Arrange
     const fakeId = 'thread-123';
-    const fakeOwner = 'owner-xxx';
+    const fakeOwner = 'dicoding';
     const fakeDate = new Date();
     const useCasePayload = {
       title: 'title-xxx',

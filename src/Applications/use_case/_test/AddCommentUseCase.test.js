@@ -8,7 +8,7 @@ describe('AddCommentUseCase', () => {
   it('should orchestrating the add comment action correctly', async () => {
     // Arrange
     const fakeId = 'comment-xxx';
-    const fakeOwner = 'owner-xxx';
+    const fakeOwner = 'dicoding';
     const useCasePayload = {
       content: 'content-xxx',
       threadId: 'thread-xxx',
