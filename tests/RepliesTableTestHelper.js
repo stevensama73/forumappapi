@@ -5,7 +5,7 @@ const RepliesTableTestHelper = {
   async addReply({
     id = 'reply-123',
     content = 'title-xxx',
-    date = '2021-08-08T07:59:18.982Z',
+    date = '2021-08-08T00:59:18.982Z',
     owner = 'dicoding',
     commentId = 'comment-123',
     is_delete = 0,
