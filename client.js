@@ -6,7 +6,7 @@ const pgclient = new Client({
   port: process.env.POSTGRES_PORT,
   user: 'postgres',
   password: 'postgres',
-  database: 'forumapi_test'
+  database: 'postgres'
 });
 
 pgclient.connect();
