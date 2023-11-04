@@ -1,0 +1,23 @@
+{
+    "env": {
+        "commonjs": true,
+        "es2021": true,
+        "node": true
+    },
+    "extends": [
+        "airbnb-base"
+    ],
+    "parserOptions": {
+        "ecmaVersion": 12
+    },
+    "rules": {
+        "linebreak-style": "off",
+        "no-underscore-dangle": "off",
+        "no-console": "off",
+        "camelcase": "off",
+        "max-len": "off",
+        "class-methods-use-this": "off",
+        "no-restricted-syntax": "off"
+    },
+    "ignorePatterns": ["**/*.test.*"]
+}
