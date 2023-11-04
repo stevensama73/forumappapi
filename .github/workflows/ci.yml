@@ -31,15 +31,10 @@ jobs:
       uses: actions/setup-node@v2
       with:
         node-version: ${{ matrix.node-version }}
-    - name: npm run migrate
-      run: |
-        npm run migrate up
-      env:
-        POSTGRES_HOST: ${{ secrets.PGHOST_TEST }}
-        POSTGRES_PORT: ${{ secrets.PGPORT_TEST }}
     - name: npm install and test
       run: |
         npm install
+        npm run migrate up
         npm run test
       env:
         CI: true
