@@ -18,12 +18,13 @@ class LikeCommentUseCase {
         owner: userId,
         is_like: !is_like,
       });
+    } else {
+      await this._likesCommentRepository.addLike({
+        threadId: useCasePayload.threadId,
+        commentId: useCasePayload.commentId,
+        owner: userId,
+      });
     }
-    await this._likesCommentRepository.addLike({
-      threadId: useCasePayload.threadId,
-      commentId: useCasePayload.commentId,
-      owner: userId,
-    });
   }
 }
 
