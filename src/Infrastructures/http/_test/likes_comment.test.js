@@ -68,7 +68,9 @@ describe('/likesComment endpoint', () => {
       const response = await server.inject({
         method: 'PUT',
         url: `/threads/${threadId}/comments/${commentId}/likes`,
-        headers: {},
+        headers: {
+          authorization: `Bearer ${accessToken}`,
+        },
       });
 
       // Assert
