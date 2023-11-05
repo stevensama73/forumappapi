@@ -27,7 +27,7 @@ describe('/likesComment endpoint', () => {
         content: 'content-xxx',
       };
       // eslint-disable-next-line no-undef
-      const server = await createServer({});
+      const server = await createServer(container);
       await server.inject({
         method: 'POST',
         url: '/users',
@@ -68,9 +68,7 @@ describe('/likesComment endpoint', () => {
       const response = await server.inject({
         method: 'PUT',
         url: `/threads/${threadId}/comments/${commentId}/likes`,
-        headers: {
-          authorization: `Bearer ${accessToken}`,
-        },
+        headers: {},
       });
 
       // Assert
