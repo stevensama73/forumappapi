@@ -27,7 +27,7 @@ describe('/likesComment endpoint', () => {
         content: 'content-xxx',
       };
       // eslint-disable-next-line no-undef
-      const server = await createServer({});
+      const server = await createServer(container);
       await server.inject({
         method: 'POST',
         url: '/users',
